@@ -1,0 +1,118 @@
+---
+title: "webR: R without the hassle"
+filters:
+  - webr
+format:
+  revealjs:
+    theme: serif
+    css: "main.css"
+---
+
+# Meet John
+
+He just arrived to Communicating with Data tutorial a bit late and realized that he has forgotten his laptop.
+
+The task at hand is to 
+
+- [ ] Download a dataset
+- [ ] Install a few packages
+- [ ] Recreate a graph
+
+. . .
+
+But,
+
+He has brought his tab that has a web browser on it though. 
+
+. . .
+
+Can he make it through the tutorial?
+
+# webR
+
+![](https://imgflip.com/i/7y6fxa)
+
+* Opens up [https://webr.r-wasm.org/v0.2.0/](https://webr.r-wasm.org/v0.2.0/) on the browser in the tab.
+
+# File management
+
+* Downloads the dataset from the tutorial website
+* Uploads the dataset to the file explorer in webR
+
+# Package management
+
+* Tries to run `library(tidyverse)` by instinct only to find out that tidyverse needs to be installed.
+
+# Data management
+
+* After installing the packages he dives right into writing the code to create the plot that was there.
+
+```
+library(tidyverse)
+
+data <- read_csv("census-birthplace.csv") |>
+  filter(!birth %in% c("Total", "Not Stated", "Other", "Australia"), 
+          census == 2021) |>
+  slice_max(count,n = 5) |>
+  mutate(birth = fct_reorder(birth, count))
+```
+
+# Plot management
+
+```
+data |>
+  ggplot(aes(x = count, y = birth, fill = birth)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  scale_fill_manual(
+    values = c("darkgray", "darkgray", "darkgray","navy", "darkgray")
+  )+
+  labs(
+    title = "India now second... ", 
+    x = "Num of Aussies",
+    y = "Birth Place",
+    caption = "Data Sauce"
+  )
+```
+
+# Stress management
+
+* John managed to make it out of the tutorial happily.
+* Thanks to webR his grades are now skyrocketing
+* His back pains are gone after bringing just the tab.
+* John goes on to become a lecturer at Monash University.
+
+# What exactly is webR
+
+It’s R running on a web browser!
+
+. . .
+
+But doesn’t Shiny let us show R command output on a web page?
+
+# webR vs Shiny
+
+:::: {.columns}
+
+::: {.column}
+Executes R commands on the client browser through WebAssembly
+:::
+
+::: {.column}
+Executes R commands on a dedicated server machine using the R interpreter 
+:::
+
+::::
+
+Wait, hol' up... 
+
+# What is WebAssembly (WASM)
+
+* Simply put, It is low level programming instruction format (the kind that computers understand) that works on top of a virtual machine inside web browsers. 
+
+* By compiling R and it's ecosystem of packages into this instruction format (web browser tongue), we can run R commands on this virtual machine inside the web browser!
+
+# webR for teaching
+
+* There's a quarto extension that allows you to have webR inside your Quarto presentations
+
+
