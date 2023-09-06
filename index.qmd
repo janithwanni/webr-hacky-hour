@@ -111,8 +111,16 @@ data |>
   geom_bar(stat = "identity", show.legend = FALSE) +
   scale_fill_manual(
     values = c("darkgray", "darkgray", "darkgray","navy", "darkgray")
+  )+
+  labs(
+    title = "India now second... ", 
+    x = "Num of Aussies",
+    y = "Birth Place",
+    caption = "Data Sauce"
   )
 ```
+
+---
 
 :::{.callout-note}
 You can also create sf plots now with webR 0.2!
