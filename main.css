@@ -1,0 +1,20 @@
+.center-block {
+  display: block;
+  margin: auto !important;
+}
+
+.center-text-content {
+  text-align: center;
+}
+
+div.column:first-child {
+  border-right: 1px solid lightgray;
+}
+
+.dark-background {
+  background-color: #191919 !important;
+}
+
+.backgrounds .slide-background:last-child .slide-background:last-child .slide-background-content {
+  background-color: #191919 !important;
+}

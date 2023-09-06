@@ -1,53 +1,95 @@
 ---
 title: "webR: R without the hassle"
+engine: knitr
 filters:
   - webr
 format:
   revealjs:
-    theme: serif
+    theme: simple
     css: "main.css"
+    scrollable: true
 ---
 
-# Meet John
+::: {.center-text-content}
+<img src="https://numbat.space/people/current/lydeamore-michael/avatar.jpg" class= "center-block" style = "border-radius: 50%"/>
 
-He just arrived to Communicating with Data tutorial a bit late and realized that he has forgotten his laptop.
+<h2 class = "center-block"> Meet John </h2>
 
-The task at hand is to 
+<span > He just arrived to the Communicating with Data tutorial a bit late and realized that he has forgotten his laptop. </span>
+:::
 
-- [ ] Download a dataset
-- [ ] Install a few packages
-- [ ] Recreate a graph
+---
 
+::: {.center-text-content}
+He looks up at the Main Display to see the following task.
+
+<img src = "tutorial-ss.jpeg" style = "width: 10em !important">
+
+This would need a laptop with R running on it...
+
+:::
 . . .
 
+::: {.center-text-content}
 But,
 
 He has brought his tab that has a web browser on it though. 
-
+:::
 . . .
 
+::: {.center-text-content}
 Can he make it through the tutorial?
+:::
 
 # webR
 
-![](https://imgflip.com/i/7y6fxa)
+<img src="https://i.imgflip.com/7y6fxa.jpg" alt="overwatch meme" class = "center-block"/>
 
 * Opens up [https://webr.r-wasm.org/v0.2.0/](https://webr.r-wasm.org/v0.2.0/) on the browser in the tab.
 
 # File management
 
-* Downloads the dataset from the tutorial website
-* Uploads the dataset to the file explorer in webR
+John decides to download the dataset from the tutorial website and uploads it to the file explorer in webR
+
+:::{.callout-note}
+
+You can avoid the download and upload steps by running `download.file` and specifying the URL and download location. When in doubt run `getwd()` to ensure you are in the right folder.
+
+:::
 
 # Package management
 
-* Tries to run `library(tidyverse)` by instinct only to find out that tidyverse needs to be installed.
+::: {.center-block}
+
+<img src = "tidyverse_meme.png" class = "center-block" style = "width: 12em !important; height: auto"/>
+
+:::
+
+---
+
+John tries to run `library(tidyverse)` by instinct only to find out that tidyverse needs to be installed.
+
+:::{.callout-note}
+Not all packages that you are used to is available in webR. You can check the available packages 
+```available.packages(repos="https://repo.r-wasm.org/", type="source")```
+
+or by checking out the Github page of webR 
+
+[https://github.com/r-wasm/webr-repo/blob/main/repo-packages](https://github.com/r-wasm/webr-repo/blob/main/repo-packages).
+
+You can install packages by running `webr::install("tidyverse")`. Or you can simply run `library(tidyverse)` and webR will ask whether to install the package.
+
+:::
 
 # Data management
 
-* After installing the packages he dives right into writing the code to create the plot that was there.
+After installing the packages he dives right into writing the following code.
 
-```
+:::{.callout-note}
+The data processing speed depends on the device that he is using to access the webR site, in this case a tab
+:::
+
+```r
 library(tidyverse)
 
 data <- read_csv("census-birthplace.csv") |>
@@ -59,7 +101,10 @@ data <- read_csv("census-birthplace.csv") |>
 
 # Plot management
 
-```
+* John decides to create a few simple plots with `plot()`
+* The plot area in the webR demo site keeps a track of the plots as well.
+
+```r
 data |>
   ggplot(aes(x = count, y = birth, fill = birth)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
@@ -74,12 +119,27 @@ data |>
   )
 ```
 
+:::{.callout-note}
+You can also create sf plots now with webR 0.2!
+
+```r
+library(sf)
+nc <- st_read(system.file("shape/nc.shp", package="sf"))
+plot(st_geometry(nc), col = sf.colors(12, categorical = TRUE), border = 'grey', 
+     axes = TRUE)
+plot(st_geometry(st_centroid(nc)), pch = 3, col = 'red', add = TRUE)
+```
+
+:::
+
 # Stress management
 
+::: {.incremental}
 * John managed to make it out of the tutorial happily.
-* Thanks to webR his grades are now skyrocketing
-* His back pains are gone after bringing just the tab.
-* John goes on to become a lecturer at Monash University.
+* Thanks to webR his grades begins to skyrocket.
+* His back pains are gone after bringing just the tab to classes.
+* John goes on to become a lecturer at Monash University where his back pain eventually comes back up again.
+:::
 
 # What exactly is webR
 
@@ -90,6 +150,8 @@ It’s R running on a web browser!
 But doesn’t Shiny let us show R command output on a web page?
 
 # webR vs Shiny
+
+<br/>
 
 :::: {.columns}
 
@@ -103,7 +165,9 @@ Executes R commands on a dedicated server machine using the R interpreter
 
 ::::
 
-Wait, hol' up... 
+<br/>
+
+> Wait, hol' up... What is WebAssembly?
 
 # What is WebAssembly (WASM)
 
@@ -113,6 +177,62 @@ Wait, hol' up...
 
 # webR for teaching
 
-* There's a quarto extension that allows you to have webR inside your Quarto presentations
+There's a quarto extension that allows you to have webR inside your Quarto documents!
 
+You can install the extension by running the following
+
+```bash
+quarto add coatless/quarto-webr
+```
+
+* And it supports webR 0.2!
+
+:::{.callout-caution}
+The above Quarto extension works nicely with Quarto documents but for revealjs presentations there are a few extra steps that are needed.
+:::
+
+# Short demo {.smaller}
+
+Head on over to [https://webr-hacky-hour.netlify.app/](https://webr-hacky-hour.netlify.app/) and try it out now!
+
+<link rel="stylesheet" href="monaco-customs.css">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"> <!-- Copied this folder from a quarto document :3 -->
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.31.0/min/vs/loader.js"></script>
+<script type="module" type="text/javascript" src="setup-quarto.js"></script>
+
+<div id="webr-status"></div>
+
+```{webr-r}
+fit = lm(mpg ~ am, data = mtcars)
+summary(fit)
+```
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+# webR for research {.smaller}
+
+* If you have made a Shiny application for your research with heavy computations you can offload it to the client browser
+
+:::{.callout-warning}
+A bit of Javascript knowledge will be needed to work through this!
+:::
+
+* If you have a made a new package that you want to have users try out during a presentation at a conference
+
+:::{.callout-warning}
+You would need to compile the package into a format that can support WASM, which would require a development environment running Linux. There's a bit of learning curve here, so tread carefully.
+:::
+
+---
+
+::: {.center-block .dark-background}
+
+<img src = "Thats-All-Folks.jpg" class = "center-block"/>
+
+:::
 

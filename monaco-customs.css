@@ -1,0 +1,12 @@
+.monaco-editor pre {
+  background-color: unset !important;
+}
+
+.btn-webr {
+  background-color: #EEEEEE;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.monaco-editor .codelens-decoration._ee1f61 { line-height: 26px; font-size: 15px; padding-right: 8px; font-feature-settings: var(--codelens-font-features_ee1f61) }
+.monaco-editor .codelens-decoration._ee1f61 span.codicon { line-height: 26px; font-size: 15px; }

@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="main.css">
@@ -243,6 +308,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -319,6 +385,7 @@
       margin-right: 0; 
     }
   </style>
+  
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -331,85 +398,161 @@
 </div>
 
 </section>
-<section id="meet-john" class="title-slide slide level1 center">
-<h1>Meet John</h1>
-<p>He just arrived to Communicating with Data tutorial a bit late and realized that he has forgotten his laptop.</p>
-<p>The task at hand is to</p>
-<ul class="task-list">
-<li><input type="checkbox">Download a dataset</li>
-<li><input type="checkbox">Install a few packages</li>
-<li><input type="checkbox">Recreate a graph</li>
-</ul>
+<section class="slide level2">
+
+<div class="center-text-content">
+<p><img src="https://numbat.space/people/current/lydeamore-michael/avatar.jpg" class="center-block" style="border-radius: 50%"></p>
+<h2 class="center-block">
+Meet John
+</h2>
+<p><span> He just arrived to the Communicating with Data tutorial a bit late and realized that he has forgotten his laptop. </span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="center-text-content">
+<p>He looks up at the Main Display to see the following task.</p>
+<p><img src="tutorial-ss.jpeg" style="width: 10em !important"></p>
+<p>This would need a laptop with R running on it…</p>
+</div>
 <div class="fragment">
+<div class="center-text-content">
 <p>But,</p>
 <p>He has brought his tab that has a web browser on it though.</p>
 </div>
+</div>
 <div class="fragment">
+<div class="center-text-content">
 <p>Can he make it through the tutorial?</p>
 </div>
+</div>
 </section>
-
 <section id="webr" class="title-slide slide level1 center">
 <h1>webR</h1>
 
-<img data-src="https://imgflip.com/i/7y6fxa.png" class="r-stretch"><ul>
+<img src="https://i.imgflip.com/7y6fxa.jpg" alt="overwatch meme" class="center-block r-stretch"><ul>
 <li>Opens up <a href="https://webr.r-wasm.org/v0.2.0/">https://webr.r-wasm.org/v0.2.0/</a> on the browser in the tab.</li>
 </ul>
 </section>
 
 <section id="file-management" class="title-slide slide level1 center">
 <h1>File management</h1>
-<ul>
-<li>Downloads the dataset from the tutorial website</li>
-<li>Uploads the dataset to the file explorer in webR</li>
-</ul>
+<p>John decides to download the dataset from the tutorial website and uploads it to the file explorer in webR</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>You can avoid the download and upload steps by running <code>download.file</code> and specifying the URL and download location. When in doubt run <code>getwd()</code> to ensure you are in the right folder.</p>
+</div>
+</div>
+</div>
 </section>
 
+<section>
 <section id="package-management" class="title-slide slide level1 center">
 <h1>Package management</h1>
-<ul>
-<li>Tries to run <code>library(tidyverse)</code> by instinct only to find out that tidyverse needs to be installed.</li>
-</ul>
+<div class="center-block">
+<p><img src="tidyverse_meme.png" class="center-block" style="width: 12em !important; height: auto"></p>
+</div>
 </section>
+<section class="slide level2">
 
+<p>John tries to run <code>library(tidyverse)</code> by instinct only to find out that tidyverse needs to be installed.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Not all packages that you are used to is available in webR. You can check the available packages <code>available.packages(repos="https://repo.r-wasm.org/", type="source")</code></p>
+<p>or by checking out the Github page of webR</p>
+<p><a href="https://github.com/r-wasm/webr-repo/blob/main/repo-packages">https://github.com/r-wasm/webr-repo/blob/main/repo-packages</a>.</p>
+<p>You can install packages by running <code>webr::install("tidyverse")</code>. Or you can simply run <code>library(tidyverse)</code> and webR will ask whether to install the package.</p>
+</div>
+</div>
+</div>
+</section></section>
 <section id="data-management" class="title-slide slide level1 center">
 <h1>Data management</h1>
-<ul>
-<li>After installing the packages he dives right into writing the code to create the plot that was there.</li>
-</ul>
-<pre><code>library(tidyverse)
-
-data &lt;- read_csv("census-birthplace.csv") |&gt;
-  filter(!birth %in% c("Total", "Not Stated", "Other", "Australia"), 
-          census == 2021) |&gt;
-  slice_max(count,n = 5) |&gt;
-  mutate(birth = fct_reorder(birth, count))</code></pre>
+<p>After installing the packages he dives right into writing the following code.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The data processing speed depends on the device that he is using to access the webR site, in this case a tab</p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"census-birthplace.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">filter</span>(<span class="sc">!</span>birth <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total"</span>, <span class="st">"Not Stated"</span>, <span class="st">"Other"</span>, <span class="st">"Australia"</span>), </span>
+<span id="cb1-5"><a href="#cb1-5"></a>          census <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">slice_max</span>(count,<span class="at">n =</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">mutate</span>(<span class="at">birth =</span> <span class="fu">fct_reorder</span>(birth, count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="plot-management" class="title-slide slide level1 center">
 <h1>Plot management</h1>
-<pre><code>data |&gt;
-  ggplot(aes(x = count, y = birth, fill = birth)) +
-  geom_bar(stat = "identity", show.legend = FALSE) +
-  scale_fill_manual(
-    values = c("darkgray", "darkgray", "darkgray","navy", "darkgray")
-  )+
-  labs(
-    title = "India now second... ", 
-    x = "Num of Aussies",
-    y = "Birth Place",
-    caption = "Data Sauce"
-  )</code></pre>
+<ul>
+<li>John decides to create a few simple plots with <code>plot()</code></li>
+<li>The plot area in the webR demo site keeps a track of the plots as well.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> count, <span class="at">y =</span> birth, <span class="at">fill =</span> birth)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkgray"</span>, <span class="st">"darkgray"</span>, <span class="st">"darkgray"</span>,<span class="st">"navy"</span>, <span class="st">"darkgray"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  )<span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="at">title =</span> <span class="st">"India now second... "</span>, </span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="at">x =</span> <span class="st">"Num of Aussies"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="at">y =</span> <span class="st">"Birth Place"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="at">caption =</span> <span class="st">"Data Sauce"</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>You can also create sf plots now with webR 0.2!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>nc <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="fu">system.file</span>(<span class="st">"shape/nc.shp"</span>, <span class="at">package=</span><span class="st">"sf"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(nc), <span class="at">col =</span> <span class="fu">sf.colors</span>(<span class="dv">12</span>, <span class="at">categorical =</span> <span class="cn">TRUE</span>), <span class="at">border =</span> <span class="st">'grey'</span>, </span>
+<span id="cb3-4"><a href="#cb3-4"></a>     <span class="at">axes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(<span class="fu">st_centroid</span>(nc)), <span class="at">pch =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 
 <section id="stress-management" class="title-slide slide level1 center">
 <h1>Stress management</h1>
+<div>
 <ul>
-<li>John managed to make it out of the tutorial happily.</li>
-<li>Thanks to webR his grades are now skyrocketing</li>
-<li>His back pains are gone after bringing just the tab.</li>
-<li>John goes on to become a lecturer at Monash University.</li>
+<li class="fragment">John managed to make it out of the tutorial happily.</li>
+<li class="fragment">Thanks to webR his grades begins to skyrocket.</li>
+<li class="fragment">His back pains are gone after bringing just the tab to classes.</li>
+<li class="fragment">John goes on to become a lecturer at Monash University where his back pain eventually comes back up again.</li>
 </ul>
+</div>
 </section>
 
 <section id="what-exactly-is-webr" class="title-slide slide level1 center">
@@ -422,6 +565,7 @@ data &lt;- read_csv("census-birthplace.csv") |&gt;
 
 <section id="webr-vs-shiny" class="title-slide slide level1 center">
 <h1>webR vs Shiny</h1>
+<p><br></p>
 <div class="columns">
 <div class="column">
 <p>Executes R commands on the client browser through WebAssembly</p>
@@ -429,7 +573,10 @@ data &lt;- read_csv("census-birthplace.csv") |&gt;
 <p>Executes R commands on a dedicated server machine using the R interpreter</p>
 </div>
 </div>
-<p>Wait, hol’ up…</p>
+<p><br></p>
+<blockquote>
+<p>Wait, hol’ up… What is WebAssembly?</p>
+</blockquote>
 </section>
 
 <section id="what-is-webassembly-wasm" class="title-slide slide level1 center">
@@ -437,12 +584,249 @@ data &lt;- read_csv("census-birthplace.csv") |&gt;
 <ul>
 <li><p>Simply put, It is low level programming instruction format (the kind that computers understand) that works on top of a virtual machine inside web browsers.</p></li>
 <li><p>By compiling R and it’s ecosystem of packages into this instruction format (web browser tongue), we can run R commands on this virtual machine inside the web browser!</p></li>
-<li></li>
 </ul>
+</section>
+
+<section id="webr-for-teaching" class="title-slide slide level1 center">
+<h1>webR for teaching</h1>
+<p>There’s a quarto extension that allows you to have webR inside your Quarto documents!</p>
+<p>You can install the extension by running the following</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">quarto</span> add coatless/quarto-webr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>And it supports webR 0.2!</li>
+</ul>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caution</strong></p>
+</div>
+<div class="callout-content">
+<p>The above Quarto extension works nicely with Quarto documents but for revealjs presentations there are a few extra steps that are needed.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="short-demo" class="title-slide slide level1 smaller center">
+<h1>Short demo</h1>
+<p>Head on over to <a href="https://webr-hacky-hour.netlify.app/">https://webr-hacky-hour.netlify.app/</a> and try it out now!</p>
+<link rel="stylesheet" href="monaco-customs.css"> <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"> <!-- Copied this folder from a quarto document :3 -->
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.31.0/min/vs/loader.js"></script>
+<script type="module" src="setup-quarto.js"></script>
+<div id="webr-status">
+
+</div>
+<button class="btn btn-default btn-webr" disabled="" type="button" id="webr-run-button-1">Loading
+  webR...</button>
+<div id="webr-editor-1"></div>
+<div id="webr-code-output-1" aria-live="assertive">
+  <pre style="visibility: hidden"></pre>
+</div>
+<script type="module">
+  // Retrieve webR code cell information
+  const runButton = document.getElementById("webr-run-button-1");
+  const outputDiv = document.getElementById("webr-code-output-1");
+  const editorDiv = document.getElementById("webr-editor-1");
+
+  // Add a light grey outline around the code editor
+  editorDiv.style.border = "1px solid #eee";
+
+  // Load the Monaco Editor and create an instance
+  let editor;
+  require(['vs/editor/editor.main'], function () {
+    editor = monaco.editor.create(editorDiv, {
+      value: `fit = lm(mpg ~ am, data = mtcars)
+summary(fit)`,
+      language: 'r',
+      theme: 'vs-light',
+      automaticLayout: true,           // TODO: Could be problematic for slide decks
+      scrollBeyondLastLine: false,
+      minimap: {
+        enabled: false
+      },
+      fontSize: '17.5rem',               // Bootstrap is 1 rem
+      renderLineHighlight: "none",     // Disable current line highlighting
+      hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+    });
+
+    // Add a keydown event listener for Shift+Enter using the addCommand method
+    editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, function () {
+      // Code to run when Shift+Enter is pressed
+      executeCode(editor.getValue());
+    });
+
+    // Add a keydown event listener for Ctrl+Enter to run selected code
+    editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, function () {
+      // Get the selected text from the editor
+      const selectedText = editor.getModel().getValueInRange(editor.getSelection());
+      // Code to run when Ctrl+Enter is pressed (run selected code)
+      executeCode(selectedText);
+    });
+
+    // Dynamically modify the height of the editor window if new lines are added.
+    let ignoreEvent = false;
+    const updateHeight = () => {
+      const contentHeight = editor.getContentHeight();
+      // We're avoiding a width change
+      //editorDiv.style.width = `${width}px`;
+      editorDiv.style.height = `${contentHeight}px`;
+      try {
+        ignoreEvent = true;
+
+        // The key to resizing is this call
+        editor.layout();
+      } finally {
+        ignoreEvent = false;
+      }
+    };
+
+    // Register an on change event for when new code is added to the editor window
+    editor.onDidContentSizeChange(updateHeight);
+
+    // Manually re-update height to account for the content we inserted into the call
+    updateHeight();
+  });
+
+  // Function to execute the code (accepts code as an argument)
+  async function executeCode(codeToRun) {
+    // Disable run button for code cell active
+    runButton.disabled = true;
+
+    // Create a canvas variable for graphics
+    let canvas = undefined;
+
+    // Initialize webR
+    await globalThis.webR.init();
+
+    // Setup a webR canvas by making a namespace call into the {webr} package
+    await webR.evalRVoid("webr::canvas(width=504, height=360)");
+
+    // Capture output data from evaluating the code
+    const result = await webRCodeShelter.captureR(codeToRun, {
+      withAutoprint: true,
+      captureStreams: true,
+      captureConditions: false//,
+      // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
+    });
+
+    // Start attempting to parse the result data
+    try {
+
+      // Stop creating images
+      await webR.evalRVoid("dev.off()");
+
+      // Merge output streams of STDOUT and STDErr (messages and errors are combined.)
+      const out = result.output.filter(
+        evt => evt.type == "stdout" || evt.type == "stderr"
+      ).map((evt) => evt.data).join("\n");
+
+      // Clean the state
+      const msgs = await webR.flush();
+
+      // Output each image stored
+      msgs.forEach(msg => {
+        // Determine if old canvas can be used or a new canvas is required.
+        if (msg.type === 'canvas'){
+          // Add image to the current canvas
+          if (msg.data.event === 'canvasImage') {
+            canvas.getContext('2d').drawImage(msg.data.image, 0, 0);
+          } else if (msg.data.event === 'canvasNewPage') {
+            // Generate a new canvas element
+            canvas = document.createElement("canvas");
+            canvas.setAttribute("width", 2 * 504);
+            canvas.setAttribute("height", 2 * 360);
+            canvas.style.width = "700px";
+            canvas.style.display = "block";
+            canvas.style.margin = "auto";
+          }
+        }
+      });
+
+      // Nullify the outputDiv of content
+      outputDiv.innerHTML = "";
+
+      // Design an output object for messages
+      const pre = document.createElement("pre");
+      if (/\S/.test(out)) {
+        // Display results as text
+        const code = document.createElement("code");
+        code.innerText = out;
+        pre.appendChild(code);
+      } else {
+        // If nothing is present, hide the element.
+        pre.style.visibility = "hidden";
+      }
+      outputDiv.appendChild(pre);
+
+      // Place the graphics on the canvas
+      if (canvas) {
+        const p = document.createElement("p");
+        p.appendChild(canvas);
+        outputDiv.appendChild(p);
+      }
+    } finally {
+      // Clean up the remaining code
+      webRCodeShelter.purge();
+      runButton.disabled = false;
+    }
+  }
+
+  // Add a click event listener to the run button
+  runButton.onclick = function () {
+    executeCode(editor.getValue());
+  };
+</script>
+<p><br> <br> <br> <br> <br> <br></p>
+</section>
+
+<section>
+<section id="webr-for-research" class="title-slide slide level1 smaller center">
+<h1>webR for research</h1>
+<ul>
+<li>If you have made a Shiny application for your research with heavy computations you can offload it to the client browser</li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>A bit of Javascript knowledge will be needed to work through this!</p>
+</div>
+</div>
+</div>
+<ul>
+<li>If you have a made a new package that you want to have users try out during a presentation at a conference</li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>You would need to compile the package into a format that can support WASM, which would require a development environment running Linux. There’s a bit of learning curve here, so tread carefully.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="center-block dark-background">
+<p><img src="Thats-All-Folks.jpg" class="center-block"></p>
+</div>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -654,6 +1038,44 @@ data &lt;- read_csv("census-birthplace.csv") |&gt;
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
