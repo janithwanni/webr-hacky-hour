@@ -1,5 +1,5 @@
 ---
-title: "webR: R without the hassle"
+title: "webR: R without the hassle (almost)"
 engine: knitr
 filters:
   - webr
