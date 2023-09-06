@@ -11,7 +11,7 @@ format:
 ---
 
 ::: {.center-text-content}
-<img src="https://numbat.space/people/current/lydeamore-michael/avatar.jpg" class= "center-block" style = "border-radius: 50%"/>
+<img src="avatar.jpg" class= "center-block" style = "border-radius: 50%"/>
 
 <h2 class = "center-block"> Meet John </h2>
 
@@ -43,7 +43,7 @@ Can he make it through the tutorial?
 
 # webR
 
-<img src="https://i.imgflip.com/7y6fxa.jpg" alt="overwatch meme" class = "center-block"/>
+<img src="webr_mercy.jpg" alt="overwatch meme" class = "center-block"/>
 
 * Opens up [https://webr.r-wasm.org/v0.2.0/](https://webr.r-wasm.org/v0.2.0/) on the browser in the tab.
 
