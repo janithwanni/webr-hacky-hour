@@ -45,7 +45,7 @@ Can he make it through the tutorial?
 
 <img src="webr_mercy.jpg" alt="overwatch meme" class = "center-block"/>
 
-* Opens up [https://webr.r-wasm.org/v0.2.0/](https://webr.r-wasm.org/v0.2.0/) on the browser in the tab.
+* John opens up [https://webr.r-wasm.org/v0.2.0/](https://webr.r-wasm.org/v0.2.0/) on the browser in the tab.
 
 # File management
 
@@ -70,7 +70,8 @@ You can avoid the download and upload steps by running `download.file` and speci
 John tries to run `library(tidyverse)` by instinct only to find out that tidyverse needs to be installed.
 
 :::{.callout-note}
-Not all packages that you are used to is available in webR. You can check the available packages 
+Not all packages that you are used to is available in webR. You can check the available packages
+
 ```available.packages(repos="https://repo.r-wasm.org/", type="source")```
 
 or by checking out the Github page of webR 
@@ -81,7 +82,7 @@ You can install packages by running `webr::install("tidyverse")`. Or you can sim
 
 :::
 
-# Data management
+# Data management {.smaller}
 
 After installing the packages he dives right into writing the following code.
 
@@ -99,7 +100,7 @@ data <- read_csv("census-birthplace.csv") |>
   mutate(birth = fct_reorder(birth, count))
 ```
 
-# Plot management
+# Plot management {.smaller}
 
 * John decides to create a few simple plots with `plot()`
 * The plot area in the webR demo site keeps a track of the plots as well.
